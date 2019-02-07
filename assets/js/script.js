@@ -1,10 +1,13 @@
 var simbolo = 'X';
 
 function play(bloco) {
-	document.getElementById(bloco).innerHTML = simbolo;
-	verifica();
-	if (simbolo == 'X') simbolo = 'O';
-	else simbolo = 'X';
+	if(document.getElementById(bloco).innerHTML == '') {
+		document.getElementById(bloco).innerHTML = simbolo;
+
+		verifica();
+		if (simbolo == 'X') simbolo = 'O';
+		else simbolo = 'X';
+	}
 }
 
 function verifica() {
