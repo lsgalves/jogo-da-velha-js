@@ -26,6 +26,7 @@ body{
 	margin: 5px;
 	font-size: 68px;
 	line-height: 150px;
+	transition: 0.2s ease-out;
 }
 .block:hover{
 	background-color: rgba(52, 73, 94,0.7);
