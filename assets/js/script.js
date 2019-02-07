@@ -5,22 +5,33 @@ function play(bloco) {
 		document.getElementById(bloco).innerHTML = simbolo;
 
 		verifica();
+		
 		if (simbolo == 'X') simbolo = 'O';
 		else simbolo = 'X';
 	}
 }
 
 function verifica() {
-	let horizontal = 0;
+	let velha = true;
+	let horizontal = 0, vertical = 0;
 	for (let i = 0; i < 3; i++) {
 		for (let j = 0; j < 3; j++) {
 			if (document.getElementById('b-'+i+'-'+j).innerHTML == simbolo)
 				horizontal++;
-		}		
-		if (horizontal == 3) return win();
-		else horizontal = 0;
+
+			if (document.getElementById('b-'+j+'-'+i).innerHTML == simbolo)
+				vertical++;
+
+			if (document.getElementById('b-'+i+'-'+j).innerHTML == '')
+				velha = false;
+		}
+
+		if (horizontal == 3 || vertical == 3) return win();
+		else horizontal = 0, vertical = 0;
 	}
-	return velha();
+
+	if (velha)
+		return old();
 }
 
 function win() {
@@ -28,6 +39,7 @@ function win() {
 	location.reload();
 }
 
-function velha() {
-
+function old() {
+	alert('Hii, Deu Velha!');
+	location.reload();
 }
